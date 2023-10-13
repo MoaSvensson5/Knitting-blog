@@ -1,0 +1,18 @@
+<div class="content">
+  <h1 class="title"><b>Contact</b></h1>
+  <p>
+    For questions about patterns, please send me a message.<br />Use the form
+    below.
+  </p>
+  <form #contactForm="ngForm" (ngSubmit)="sendMessage()">
+    <label>Firstname : </label>
+    <input type="text" required name="firstname" [(ngModel)]="firstname" #firstnameField="ngModel"/>
+    <br />
+    <label>Email : </label>
+    <input type="text" required name="email" [(ngModel)]="email" #emailField="ngModel"/>
+    <br />
+    <label>Message : </label>
+    <textarea required name="message" [(ngModel)]="message" #messageField="ngModel"></textarea>
+    <button type="submit" [disabled]="contactForm.invalid">Submit</button>
+  </form>
+</div>

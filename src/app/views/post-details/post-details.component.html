@@ -1,0 +1,13 @@
+<section class="content" *ngIf="post">
+  <h2>{{ post.title }}</h2>
+  <img src="{{ post.thumbnailUrl }}" />
+  <p>{{ post.body }}</p>
+  <section class="container">
+    <div>
+      <p (click)="increaseLikes()">Like {{ post.likes }}</p>
+    </div>
+    <div>
+      <p (click)="increaseDislikes()">Dislike {{ post.dislikes }}</p>
+    </div>
+  </section>
+</section>

@@ -1,0 +1,35 @@
+<form (ngSubmit)="addNewPost()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input
+      type="text"
+      id="title"
+      [(ngModel)]="postData.title"
+      name="title"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="thumbnailUrl">Thumbnail URL</label>
+    <input
+      type="text"
+      id="thumbnailUrl"
+      [(ngModel)]="postData.thumbnailUrl"
+      name="thumbnailUrl"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="body">Body</label>
+    <textarea
+      id="body"
+      [(ngModel)]="postData.body"
+      name="body"
+      required
+    ></textarea>
+  </div>
+
+  <button type="submit">Create Post</button>
+</form>

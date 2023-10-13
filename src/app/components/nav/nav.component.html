@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <ul class="unordered-list">
+    <li>
+      <a routerLink="/">HOME</a>
+    </li>
+    <li>
+      <a routerLink="/about-me">ABOUT ME</a>
+    </li>
+    <li>
+      <a routerLink="/contact">CONTACT</a>
+    </li>
+    <li>
+      <a *ngIf="isAdminView" routerLink="/create-post">CREATE POST</a>
+    </li>
+  </ul>
+  <div class="row">
+    <p>USER</p>
+    <label class="switch">
+      <input type="checkbox" (change)="toggleView()">
+      <span class="slider round"></span>
+    </label>
+    <p>ADMIN</p>
+  </div>
+</nav>
