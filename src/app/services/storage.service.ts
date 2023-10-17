@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../models/post';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StorageService {
   public posts: Post[] = [];
 
-  constructor() { 
+  constructor() {
     this.posts = this.loadPost();
   }
 
-  public savePost(post:Post): void {
+  public savePost(post: Post): void {
     const savedPosts = this.loadPost();
     savedPosts.push(post);
     localStorage.setItem('posts', JSON.stringify(savedPosts));
@@ -39,6 +38,30 @@ export class StorageService {
       savedPosts[existingPostIndex] = post;
       localStorage.setItem('posts', JSON.stringify(savedPosts));
       this.posts = savedPosts;
+    }
+  }
+
+  public increaseLikes(post: Post): void {
+    const existingPost = this.posts.find((p) => p.id === post.id);
+    if (existingPost) {
+      existingPost.likes++;
+      this.updatePost(existingPost);
+    }
+  }
+
+  public increaseDislikes(post: Post): void {
+    const existingPost = this.posts.find((p) => p.id === post.id);
+    if (existingPost) {
+      existingPost.dislikes++;
+      this.updatePost(existingPost);
+    }
+  }
+
+  public addComment(post: Post, comment: string): void {
+    const existingPost = this.posts.find((p) => p.id === post.id);
+    if (existingPost) {
+      existingPost.comments.push(comment);
+      this.updatePost(existingPost);
     }
   }
 }

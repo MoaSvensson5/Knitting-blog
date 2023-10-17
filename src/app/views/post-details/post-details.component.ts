@@ -10,6 +10,7 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class PostDetailsComponent {
   id: number = -1;
+  newComment:string='';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -24,5 +25,20 @@ export class PostDetailsComponent {
     return this.storageService.posts.find((all) => all.id === this.id);
   }
 
-  
+  increaseLikes(post: Post): void {
+    post.likes++;
+    this.storageService.updatePost(post);
+  }
+
+  increaseDislikes(post: Post): void {
+    post.dislikes++;
+    this.storageService.updatePost(post);
+  }
+
+  addComment(post: Post ): void {
+    if (this.newComment) {
+      this.storageService.addComment(post, this.newComment); // Anropa lagringstjänsten för att lägga till kommentaren
+      this.newComment = ''; // Nollställ den aktuella kommentaren efter att ha lagt till den
+    }
+  }
 }
