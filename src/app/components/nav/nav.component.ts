@@ -10,9 +10,6 @@ export class NavComponent {
 
   constructor(private router: Router) {} 
 
-  title: string ='user';
-  title1: string ='admin';
-
   isAdminView: boolean = false;
 
   toggleView(): void {

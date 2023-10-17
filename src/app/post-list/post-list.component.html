@@ -3,6 +3,7 @@
     <li *ngFor="let post of posts" class="post">
       <a [routerLink]="'/post/' + post.id" class="title">{{ post.title }}</a>
       <img src="{{ post.thumbnailUrl }}" />
+      <hr>
     </li>
   </ul>
 </section>

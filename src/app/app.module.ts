@@ -12,7 +12,6 @@ import { ContactComponent } from './views/contact/contact.component';
 import { CreatePostComponent } from './views/create-post/create-post.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NewPostComponent } from './components/new-post/new-post.component';
-import { PostComponent } from './components/post/post.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { PostDetailsComponent } from './views/post-details/post-details.component';
 
@@ -27,7 +26,6 @@ import { PostDetailsComponent } from './views/post-details/post-details.componen
     CreatePostComponent,
     HeaderComponent,
     NewPostComponent,
-    PostComponent,
     PostListComponent,
     PostDetailsComponent
   ],
