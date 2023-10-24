@@ -10,11 +10,19 @@ export class NavComponent {
 
   constructor(private router: Router) {} 
 
-  isAdminView: boolean = false;
+  isAdminView: boolean = true;
+  isMenuOpen: boolean = false;
 
   toggleView(): void {
     this.isAdminView = !this.isAdminView;
     this.router.navigate(['/']);
   }
 
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
+  }
 }

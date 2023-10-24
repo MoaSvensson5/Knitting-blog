@@ -6,14 +6,16 @@ import { Post } from '../models/post';
 })
 export class StorageService {
   public posts: Post[] = [];
+  private postIdCounter: number = 0;
 
   constructor() {
     this.posts = this.loadPost();
+    this.postIdCounter = Math.max(...this.posts.map((post) => post.id), 0) + 1;
   }
 
   public savePost(post: Post): void {
     const savedPosts = this.loadPost();
-    savedPosts.push(post);
+    savedPosts.unshift(post);
     localStorage.setItem('posts', JSON.stringify(savedPosts));
     this.posts = savedPosts;
   }
@@ -63,5 +65,13 @@ export class StorageService {
       existingPost.comments.push(comment);
       this.updatePost(existingPost);
     }
+  }
+
+  public getNextPostId(): number {
+    return this.postIdCounter++;
+  }
+
+  public getPostByTitle(title: string): Post | undefined {
+    return this.posts.find((post) => post.title === title);
   }
 }

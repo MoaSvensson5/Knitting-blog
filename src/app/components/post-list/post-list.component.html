@@ -1,0 +1,13 @@
+<section class="content">
+  <ul>
+    <li *ngFor="let post of posts" class="post">
+      <a routerLink="/post/{{post.title}}" class="title" (click)="scrollToTop()">{{ post.title }}</a>
+      <img src="{{ post.thumbnailUrl }}" />
+      <div class="ellipsis">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </li>
+  </ul>
+</section>

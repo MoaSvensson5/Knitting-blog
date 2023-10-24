@@ -19,7 +19,7 @@ export class NewPostComponent {
 
   addNewPost(): void {
     const newPost = {
-      id: this.nextId++,
+      id: this.storageService.getNextPostId(),
       title: this.postData.title,
       thumbnailUrl: this.postData.thumbnailUrl,
       body: this.postData.body,

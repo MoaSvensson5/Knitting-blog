@@ -1,7 +1,7 @@
-<form #createPostForm="ngForm" (ngSubmit)="addNewPost()" class="form">
-  <img src="./assets/knitting-inspo.jpg">
+<div class="form">
+  <img src="./assets/knitting-inspo.jpg" />
   <h1>Create post</h1>
-  <div class="form-group">
+  <form #createPostForm="ngForm" (ngSubmit)="addNewPost()" class="form-content">
     <input
       type="text"
       id="title"
@@ -11,9 +11,6 @@
       #title="ngModel"
       required
     />
-  </div>
-
-  <div class="form-group">
     <input
       type="text"
       id="thumbnailUrl"
@@ -23,9 +20,6 @@
       #thumbnailUrl="ngModel"
       required
     />
-  </div>
-
-  <div class="form-group">
     <textarea
       id="body"
       [(ngModel)]="postData.body"
@@ -34,7 +28,12 @@
       #body="ngModel"
       required
     ></textarea>
-  </div>
-
-  <button type="submit" [disabled]="createPostForm.invalid" class="submit-button">Post</button>
-</form>
+    <button
+      type="submit"
+      [disabled]="createPostForm.invalid"
+      class="submit-button"
+    >
+      Post
+    </button>
+  </form>
+</div>

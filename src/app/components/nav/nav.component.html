@@ -1,24 +1,28 @@
+<div class="row">
+  <p>ADMIN</p>
+  <label class="switch">
+    <input type="checkbox" (change)="toggleView()" />
+    <span class="slider round"></span>
+  </label>
+  <p>USER</p>
+</div>
+<hr />
 <nav class="navbar">
-  <ul class="unordered-list">
+  <div class="menu-toggle" (click)="toggleMenu()">☰</div>
+  <ul class="unordered-list" [ngClass]="{ 'show': isMenuOpen }">
     <li>
-      <a routerLink="/">HOME</a>
+      <a routerLink="/" (click)="closeMenu()">HOME</a>
     </li>
     <li>
-      <a routerLink="/about-me">ABOUT ME</a>
+      <a routerLink="/about-me" (click)="closeMenu()">ABOUT ME</a>
     </li>
     <li>
-      <a routerLink="/contact">CONTACT</a>
+      <a routerLink="/contact" (click)="closeMenu()">CONTACT</a>
     </li>
-    <li>
-      <a *ngIf="isAdminView" routerLink="/create-post">CREATE POST</a>
+    <li *ngIf="isAdminView">
+      <a routerLink="/create-post" (click)="closeMenu()">CREATE POST</a>
     </li>
   </ul>
-  <div class="row">
-    <p>USER</p>
-    <label class="switch">
-      <input type="checkbox" (change)="toggleView()">
-      <span class="slider round"></span>
-    </label>
-    <p>ADMIN</p>
-  </div>
+  
 </nav>
+<hr />

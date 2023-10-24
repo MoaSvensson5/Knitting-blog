@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from 'src/app/models/post';
 import { StorageService } from 'src/app/services/storage.service';
@@ -6,23 +7,21 @@ import { StorageService } from 'src/app/services/storage.service';
 @Component({
   selector: 'app-post-details',
   templateUrl: './post-details.component.html',
-  styleUrls: ['./post-details.component.css']
+  styleUrls: ['./post-details.component.css'],
 })
 export class PostDetailsComponent {
-  id: number = -1;
-  newComment:string='';
+  title: string = '';
+  newComment: string = '';
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private storageService: StorageService,
+    private storageService: StorageService
   ) {
-    activatedRoute.params.subscribe(
-      (params) => (this.id = parseInt(params['id'])),
-    );
+    activatedRoute.params.subscribe((params) => (this.title = params['title']));
   }
 
   get post(): Post | undefined {
-    return this.storageService.posts.find((all) => all.id === this.id);
+    return this.storageService.posts.find((post) => post.title === this.title);
   }
 
   increaseLikes(post: Post): void {
@@ -35,10 +34,10 @@ export class PostDetailsComponent {
     this.storageService.updatePost(post);
   }
 
-  addComment(post: Post ): void {
+  addComment(post: Post): void {
     if (this.newComment) {
-      this.storageService.addComment(post, this.newComment); // Anropa lagringstjänsten för att lägga till kommentaren
-      this.newComment = ''; // Nollställ den aktuella kommentaren efter att ha lagt till den
+      this.storageService.addComment(post, this.newComment);
+      this.newComment = '';
     }
   }
 }

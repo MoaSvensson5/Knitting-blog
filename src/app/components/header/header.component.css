@@ -3,6 +3,7 @@
 }
 
 img {
-  height:200px;
-  width:500px;
+  height:auto;
+  width:30%;
+  min-width: 350px;
 }
