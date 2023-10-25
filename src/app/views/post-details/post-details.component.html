@@ -8,10 +8,10 @@
   <hr />
   <section class="container">
     <div>
-      <p (click)="increaseLikes(post)">Like: {{ post.likes }}</p>
+      <p (click)="increaseLikes(post)" class="like-button">Like: {{ post.likes }}</p>
     </div>
     <div>
-      <p (click)="increaseDislikes(post)">Dislike: {{ post.dislikes }}</p>
+      <p (click)="increaseDislikes(post)" class="dislike-button">Dislike: {{ post.dislikes }}</p>
     </div>
   </section>
   <section class="comment-section">

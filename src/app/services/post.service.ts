@@ -43,6 +43,11 @@ export class StorageService {
     }
   }
 
+  public removePost(post:Post): void {
+    this.posts = this.posts.filter((all) => all.id !== post.id);
+    localStorage.setItem('posts', JSON.stringify(this.posts));
+  }
+
   public increaseLikes(post: Post): void {
     const existingPost = this.posts.find((p) => p.id === post.id);
     if (existingPost) {
@@ -69,9 +74,5 @@ export class StorageService {
 
   public getNextPostId(): number {
     return this.postIdCounter++;
-  }
-
-  public getPostByTitle(title: string): Post | undefined {
-    return this.posts.find((post) => post.title === title);
   }
 }

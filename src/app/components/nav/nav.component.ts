@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminViewService } from 'src/app/services/admin-view.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,13 +9,14 @@ import { Router } from '@angular/router';
 })
 export class NavComponent {
 
-  constructor(private router: Router) {} 
+  constructor(private router: Router, private adminViewService: AdminViewService) {} 
 
   isAdminView: boolean = true;
   isMenuOpen: boolean = false;
 
   toggleView(): void {
     this.isAdminView = !this.isAdminView;
+    this.adminViewService.setIsAdminView(this.isAdminView);
     this.router.navigate(['/']);
   }
 

@@ -28,6 +28,10 @@ hr {
   font-family: "Mukta", sans-serif;
 }
 
+.like-button:hover, .dislike-button:hover {
+  cursor: pointer;
+}
+
 .body {
   font-family: "Mukta", sans-serif;
   color: #333;
@@ -63,6 +67,11 @@ hr {
 .comment-input, .comment-button {
   font-family: "Mukta", sans-serif;
   color: #333;
+  padding:5px;
+}
+
+.comment-button:hover {
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {

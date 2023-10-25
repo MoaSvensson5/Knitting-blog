@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Post } from 'src/app/models/post';
-import { StorageService } from 'src/app/services/storage.service';
+import { StorageService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-new-post',
@@ -8,28 +8,22 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./new-post.component.css'],
 })
 export class NewPostComponent {
-  postData: any = {
+  postData: {title:string, thumbnailUrl:string, body:string} = {
     title: '',
     thumbnailUrl: '',
     body: '',
   };
-  nextId: number = 0;
 
   constructor(private storageService: StorageService) {}
 
   addNewPost(): void {
-    const newPost = {
-      id: this.storageService.getNextPostId(),
-      title: this.postData.title,
-      thumbnailUrl: this.postData.thumbnailUrl,
-      body: this.postData.body,
-      creationDate: new Date(),
-      likes: 0,
-      dislikes: 0,
-      comments: [],
-    };
+    const newPost = new Post(
+      this.postData.title,
+      this.postData.thumbnailUrl,
+      this.postData.body
+    );
+    newPost.id = this.storageService.getNextPostId();
     this.storageService.addPost(newPost);
-
     this.postData = { title: '', thumbnailUrl: '', body: '' };
   }
 }

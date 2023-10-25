@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Component, Inject, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from 'src/app/models/post';
-import { StorageService } from 'src/app/services/storage.service';
+import { StorageService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-post-details',

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { StorageService } from './storage.service';
+import { AdminViewService } from './admin-view.service';
 
-describe('StorageService', () => {
-  let service: StorageService;
+describe('AdminViewService', () => {
+  let service: AdminViewService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(StorageService);
+    service = TestBed.inject(AdminViewService);
   });
 
   it('should be created', () => {
