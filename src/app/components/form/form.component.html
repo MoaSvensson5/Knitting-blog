@@ -1,0 +1,24 @@
+<div class="form">
+  <img [src]="image">
+  <h1>{{ formTitle }}</h1>
+  <form #form="ngForm" (ngSubmit)="onSubmit()" class="form-content">
+    <ng-container *ngFor="let input of inputFields">
+      <input
+        type="{{ input.type }}"
+        required
+        name="{{ input.name }}"
+        placeholder="{{ input.placeholder }}"
+        [(ngModel)]="inputData[input.name]"
+      />
+    </ng-container>
+    <textarea
+      required
+      name="{{ textarea.name }}"
+      placeholder="{{ textarea.placeholder }}"
+      [(ngModel)]="inputData[textarea.name]"
+    ></textarea>
+    <button type="submit" class="submit-button" [disabled]="form.invalid">
+      {{ buttonText }}
+    </button>
+  </form>
+</div>

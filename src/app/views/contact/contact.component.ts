@@ -1,23 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css'],
 })
 export class ContactComponent {
-  public firstname: string = "";
-  public email: string = "";
-  public message: string = "";
+  contactFields = [
+    { name: 'firstname', type: 'text', placeholder: 'Firstname..' },
+    { name: 'email', type: 'email', placeholder: 'Email..' },
+  ];
+  textarea = { name: 'message', placeholder: 'Message..' };
 
-  sendMessage() {
-    const name= this.firstname;
-    const email = this.email;
-    const msg = this.message;
-    console.log(name + " " + email + " " + msg)
-
-    this.firstname ="";
-    this.email ="";
-    this.message ="";
+  onSubmitContact(formData: { [key: string]: any }) {
+    console.log(formData['firstname'], formData['email'], formData['message']);
+    formData = [];
   }
 }

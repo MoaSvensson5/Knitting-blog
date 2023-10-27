@@ -1,1 +1,9 @@
-<app-new-post></app-new-post>
+<app-form
+  [image]="'./assets/knitting-inspo.jpg'"
+  [formTitle]="'Create Post'"
+  [inputFields]="postFields"
+  [textarea]="textarea"
+  [buttonText]="'Submit'"
+  (submittedForm)="onSubmitForm($event)"
+></app-form>
+

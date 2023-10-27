@@ -1,34 +1,8 @@
-<div class="form">
-  <img src="./assets/knitting-yarn.jpg" />
-  <h1>Contact</h1>
-  <p>Do you have any questions? Please send me a message.</p>
-  <form #contactForm="ngForm" (ngSubmit)="sendMessage()" class="form-content">
-    <input
-      type="text"
-      required
-      name="firstname"
-      placeholder="Firstname.."
-      [(ngModel)]="firstname"
-    />
-    <input
-      type="text"
-      required
-      name="email"
-      placeholder="Email.."
-      [(ngModel)]="email"
-    />
-    <textarea
-      required
-      name="message"
-      placeholder="Message.."
-      [(ngModel)]="message"
-    ></textarea>
-    <button
-      type="submit"
-      class="submit-button"
-      [disabled]="contactForm.invalid"
-    >
-      Submit
-    </button>
-  </form>
-</div>
+<app-form
+  [image]="'./assets/knitting-yarn.jpg'"
+  [formTitle]="'Contact'"
+  [inputFields]="contactFields"
+  [textarea]="textarea"
+  [buttonText]="'Submit'"
+  (submittedForm)="onSubmitContact($event)"
+></app-form>
