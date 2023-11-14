@@ -10,7 +10,7 @@ import { StorageService } from 'src/app/services/post.service';
   styleUrls: ['./post-list.component.css'],
 })
 export class PostListComponent {
-  @Input() posts: Post[] = [];
+  public posts: Post[] = [];
   isAdminView: boolean = true;
   
   constructor(

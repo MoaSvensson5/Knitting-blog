@@ -7,5 +7,5 @@ import { Post } from 'src/app/models/post';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  posts: Post[] = [];
+ 
 }

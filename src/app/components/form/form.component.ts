@@ -15,9 +15,9 @@ export class FormComponent {
     placeholder: '',
   };
 
-  inputData: { [key: string]: any } = {};
+  inputData: { [key: string]: string } = {};
 
-  @Output() submittedForm = new EventEmitter<{ [key: string]: any }>();
+  @Output() submittedForm = new EventEmitter<{ [key: string]: string }>();
 
   onSubmit() {
     this.submittedForm.emit(this.inputData);

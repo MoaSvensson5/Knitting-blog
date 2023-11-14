@@ -9,11 +9,11 @@ import { HomeComponent } from './views/home/home.component';
 import { AboutMeComponent } from './views/about-me/about-me.component';
 import { CreatePostComponent } from './views/create-post/create-post.component';
 import { HeaderComponent } from './components/header/header.component';
-import { NewPostComponent } from './components/new-post/new-post.component';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { PostDetailsComponent } from './views/post-details/post-details.component';
 import { FormComponent } from './components/form/form.component';
 import { ContactComponent } from './views/contact/contact.component';
+import { ImageTextBlockComponent } from './components/image-text-block/image-text-block.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +23,11 @@ import { ContactComponent } from './views/contact/contact.component';
     AboutMeComponent,
     CreatePostComponent,
     HeaderComponent,
-    NewPostComponent,
     PostListComponent,
     PostDetailsComponent,
     FormComponent,
-    ContactComponent
+    ContactComponent,
+    ImageTextBlockComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [DatePipe],

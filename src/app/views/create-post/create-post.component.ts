@@ -16,14 +16,14 @@ export class CreatePostComponent {
   ];
   textarea = { name: 'body', placeholder: 'Post..' };
 
-  onSubmitForm(formData: { [key: string]: any }) {
+  onSubmitForm(inputData: { [key: string]: string }) {
     const newPost = new Post(
-      formData['title'],
-      formData['thumbnail_url'],
-      formData['body']
+      inputData['title'],
+      inputData['thumbnail_url'],
+      inputData['body']
     );
     newPost.id = this.storageService.getNextPostId();
     this.storageService.addPost(newPost);
-    formData = [];
   }
 }
+ 

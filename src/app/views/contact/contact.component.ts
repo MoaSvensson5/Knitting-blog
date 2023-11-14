@@ -12,8 +12,7 @@ export class ContactComponent {
   ];
   textarea = { name: 'message', placeholder: 'Message..' };
 
-  onSubmitContact(formData: { [key: string]: any }) {
-    console.log(formData['firstname'], formData['email'], formData['message']);
-    formData = [];
+  onSubmitContact(inputData: { [key: string]: string }) {
+    console.log("Name:", inputData['firstname'], "Email:", inputData['email'], "Message:", inputData['message']);
   }
 }
